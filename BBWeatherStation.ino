@@ -40,6 +40,7 @@ char *str_version = "version 0.3.3";
 // TODO: update to Async OTA
 #include <ElegantOTA.h>
 #include <ThingSpeak.h>
+#include "secrets.h"
 
 // Display Settings:
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
@@ -67,13 +68,14 @@ unsigned long g_lastThingSpeakUpdateTime = 0;
 String g_strWeather;
 
 // Wifi connection, Local Web Server and ThingSpeak connection
-const char* ssid = "BirksBeamer";
-const char* password = "stanford";
 WiFiClient  client;
 ESP8266WebServer server(80);
-unsigned long myChannelNumber = 265281;
-const char * myWriteAPIKey = "UZAWI2LOJQX0MVVB";
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASS;
+unsigned long myChannelNumber = SECRET_THINGSPEAK_CHANNEL_NUMBER;
+const char * myWriteAPIKey = SECRET_THINGSPEAK_API_KEY;
 
+// state machine variables for display on/off based on button push:
 bool g_bBtnPushed = false;
 bool g_bDisplayOn = true;
 
