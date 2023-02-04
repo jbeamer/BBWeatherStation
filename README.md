@@ -1,6 +1,6 @@
 # BirksBeamer Weather Station
 
-Arduino, ThingSpeak project for modest weather station at our home.  
+Project for modest weather station at our home using Arduino and ThingSpeak. 
 
 Measures: Wind Speed, Wind Direction, Temperature, Humidity and Barometric Pressure
 
@@ -25,14 +25,11 @@ Anemometer code is all custom
 
 BME and Display libaries from Adafruit.  What would we do without Lady Ada?
 
-The installed location makes updating the firmware difficult, so I have been using Ayush Sharma's ElegantOTA library to remotely upload compiled binaries.  
+The installed location makes updating the firmware difficult, using ArduinoOTA library for remote updates.
 
 ## Wish list / Known issues:
 * local site is bare bones -- would be good to show the data more completely
 * thingspeak display also weak -- limited history -- maybe can be confugured on their site?
 * integration into my home assistant install would likely make both of those problems irrelevant
-* OTA updates are super flaky -- takes me about 10 tries to get through an upload without a reset.  Could be:
-  * an interrupt collision (anemometer is interrupt driven) -- try disabling when handling OTA
-  * a power issue? 
 * On reset, the device advertises Adafruit Industries... love them, but this is weird.
   
